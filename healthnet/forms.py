@@ -94,12 +94,12 @@ class LoginForm(BasicForm):
 
 
 class AccountRegisterForm(BasicForm):
-    insurance = forms.CharField(max_length=50)
+    insurance = forms.CharField(label='Insurance Number', max_length=50)
     setup_field(insurance, 'Enter your insurance information')
-    firstname = forms.CharField(max_length=50)
-    setup_field(firstname, 'Enter first name here')
-    lastname = forms.CharField(max_length=50)
-    setup_field(lastname, 'Enter a last name here')
+    firstname = forms.CharField(label='First Name', max_length=50)
+    setup_field(firstname, 'Enter your first name here')
+    lastname = forms.CharField(label='Last Name', max_length=50)
+    setup_field(lastname, 'Enter your last name here')
     email = forms.EmailField(max_length=50, validators=[validate_username_available])
     setup_field(email, 'Enter email here')
     password_first = forms.CharField(label='Password', min_length=1, max_length=50, widget=forms.PasswordInput())
