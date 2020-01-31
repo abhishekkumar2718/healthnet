@@ -122,11 +122,11 @@ class AccountRegisterForm(BasicForm):
 
 
 class PasswordForm(BasicForm):
-    password_current = forms.CharField(label='Current', max_length=50, widget=forms.PasswordInput())
+    password_current = forms.CharField(label='Current Password', max_length=50, widget=forms.PasswordInput())
     setup_field(password_current, 'Enter your current password here')
-    password_first = forms.CharField(label='New', max_length=50, widget=forms.PasswordInput())
+    password_first = forms.CharField(label='New Password', max_length=50, widget=forms.PasswordInput())
     setup_field(password_first, "Enter new password here")
-    password_second = forms.CharField(label='', max_length=50, widget=forms.PasswordInput())
+    password_second = forms.CharField(label='Repeat the password', max_length=50, widget=forms.PasswordInput())
     setup_field(password_second, "Enter new password again")
 
     """
@@ -149,11 +149,11 @@ class PasswordForm(BasicForm):
 
 
 class ProfileForm(BasicForm):
-    firstname = forms.CharField(max_length=50)
+    firstname = forms.CharField(label='First Name', max_length=50)
     setup_field(firstname, 'Enter first name here')
-    lastname = forms.CharField(max_length=50)
+    lastname = forms.CharField(label='Last Name', max_length=50)
     setup_field(lastname, 'Enter a last name here')
-    insurance = forms.CharField(max_length=50)
+    insurance = forms.CharField(label='Insurance Number', max_length=50)
     setup_field(insurance, "Enter your insurance information")
     sex = forms.ChoiceField(required=False, choices=Profile.GENDER)
     setup_field(sex)
@@ -242,7 +242,7 @@ class EmployeeRegisterForm(BasicForm):
     setup_field(email, 'Enter email here')
     password_first = forms.CharField(label='Password', min_length=1, max_length=50, widget=forms.PasswordInput())
     setup_field(password_first, "Enter password here")
-    password_second = forms.CharField(label='', min_length=1, max_length=50, widget=forms.PasswordInput())
+    password_second = forms.CharField(label='Repeat password', min_length=1, max_length=50, widget=forms.PasswordInput())
     setup_field(password_second, "Enter password again")
     employee = forms.ChoiceField(required=False, choices=Account.EMPLOYEE_TYPES)
     setup_field(employee)
