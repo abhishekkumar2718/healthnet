@@ -215,6 +215,8 @@ class Appointment(models.Model):
     startTime = models.TimeField()
     endTime = models.TimeField()
     date = models.DateField()
+    fees = models.IntegerField(default=0)
+    fees_paid = models.BooleanField(default=False)
 
     def get_populated_fields(self):
         """
@@ -255,6 +257,8 @@ class Admission(models.Model):
     reason = models.CharField(max_length=200)
     hospital = models.ForeignKey(Hospital, on_delete=models.CASCADE)
     active = models.BooleanField(default=True)
+    fees = models.IntegerField(default=0)
+    fees_paid = models.BooleanField(default=False)
 
 
 class Prescription(models.Model):
@@ -317,6 +321,8 @@ class MedicalTest(models.Model):
     patient = models.ForeignKey(User, related_name="pts", on_delete=models.CASCADE)
     private = models.BooleanField(default=True)
     completed = models.BooleanField()
+    fees = models.IntegerField(default=0)
+    fees_paid = models.BooleanField(default=False)
     # image1 = models.FileField(blank=True, null=True, upload_to='images/%Y/%m/%d')
     # image2 = models.FileField(blank=True, null=True, upload_to='images/%Y/%m/%d')
     # image3 = models.FileField(blank=True, null=True, upload_to='images/%Y/%m/%d')

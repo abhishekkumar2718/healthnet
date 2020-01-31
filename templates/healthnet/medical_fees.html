@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load app_filters %}
+{% block content_title %}{% block title %}Medical Fees{% endblock %}{% endblock %}
+{% block body %}
+  <table class="table table-striped">
+    <thead>
+      <th>Item</th>
+      <th>Type</th>
+      <th>Amount</th>
+    </thead>
+
+    <tbody>
+      {% for admission in admissions %}
+        <tr>
+          <td>{{ admission.hospital }} - {{ admission.date }}</td>
+          <td>Admission</td>
+          <td>{{ admission.fees }}</td>
+        </tr>
+      {% endfor %}
+
+      {% for appointment in appointments %}
+        <tr>
+          <td>{{ appointment.doctor.account.name }} - {{ appointment.date }}</td>
+          <td>Appointment</td>
+          <td>{{ appointment.fees }}</td>
+        </tr>
+      {% endfor %}
+
+      {% for medical_test in medical_tests %}
+        <tr>
+          <td>{{ medical_test.name }}</td>
+          <td>Medical Test</td>
+          <td>{{ medical_test.fees }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <form class="form-horizontal" action="/medical_fees/pay/" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <input class="btn btn-primary col-sm-12" type="submit" value="Pay"/>
+    </div>
+  </form>
+{% endblock %}

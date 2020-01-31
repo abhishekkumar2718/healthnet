@@ -1,15 +1,6 @@
 from django.conf.urls import url
 
-from healthnet import views
-from healthnet import views_admin
-from healthnet import views_admission
-from healthnet import views_appointment
-from healthnet import views_medtest
-from healthnet import views_message
-from healthnet import views_prescription
-from healthnet import views_profile
-from healthnet import views_medicalInfo
-
+from healthnet import views, views_admin, views_admission, views_appointment, views_medtest, views_message, views_prescription, views_profile, views_medicalInfo, views_medical_fees
 
 urlpatterns = [
    url(r'^$', views.login_view, name='index'),
@@ -56,4 +47,7 @@ urlpatterns = [
    url(r'^medicalinfo/list/$', views_medicalInfo.list_view, name='medicalinfo/list'),
    url(r'^medicalinfo/update/$', views_medicalInfo.update_view, name='medicalinfo/update'),
    url(r'^medicalinfo/patient/$', views_medicalInfo.patient_view, name='medicalinfo/patient'),
+
+   url(r'^medical_fees/list/$', views_medical_fees.list_view, name='medical_fees/list'),
+   url(r'^medical_fees/pay/$', views_medical_fees.pay_view, name='medical_fees/pay'),
 ]
