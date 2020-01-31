@@ -1,10 +1,7 @@
 {% extends "base.html" %}
 {% load app_filters %}
-{% block title %}View Medical Info{% endblock %}
-{% block sidebar_medicalinfo_list %}active{% endblock %}
-{% block body_header %}View Medical Info{% endblock %}
+{% block content_title %}{% block title %}Medical Info{% endblock %}{% endblock %}
 {% block body %}
-    <p class="lead">View all patients' medical info.</p>
     <table class="table table-striped">
         <thead>
             <th><a href="./?sort=patient">Patient</a></th>

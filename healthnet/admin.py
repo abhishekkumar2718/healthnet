@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from healthnet.models import Location, Hospital, Account, Profile, Action, Appointment, MedicalTest, Statistics
+from healthnet.models import Location, Hospital, Account, Profile, Action, Appointment, MedicalTest, Statistics, MedicalInfo
 
 
 class LocationAdmin(admin.ModelAdmin):
@@ -94,8 +94,20 @@ class MedicalTestAdmin(admin.ModelAdmin):
     ]
     list_display = ('name', 'doctor', 'patient', 'date')
 
-
 admin.site.register(MedicalTest, MedicalTestAdmin)
+
+class MedicalInfoAdmin(admin.ModelAdmin):
+    fields = [
+        'bloodType',
+        'allergy',
+        'alzheimer',
+        'asthma',
+        'diabetes',
+        'stroke',
+        'comments',
+    ]
+
+admin.site.register(MedicalInfo, MedicalInfoAdmin)
 
 class StatsAdmin(admin.ModelAdmin):
     readonly_fields = ('stats', 'freq')

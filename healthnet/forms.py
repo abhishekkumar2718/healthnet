@@ -294,7 +294,7 @@ class PrescriptionForm(BasicForm):
     setup_field(medication, "Enter the medication here")
     strength = forms.CharField(max_length=30)
     setup_field(strength, "Enter the strength here")
-    instruction = forms.CharField(max_length=200)
+    instruction = forms.CharField(label='Instructions', max_length=200)
     setup_field(instruction, "Enter the instruction here")
     refill = forms.IntegerField()
     setup_field(refill, "Enter the number of refills")

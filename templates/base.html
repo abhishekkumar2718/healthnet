@@ -84,7 +84,7 @@
           {% if user|isAuthenticated %}
             <li class="nav-item">
               <a href="/profile/" class="nav-link">
-                <p>Overview</p>
+                <p>Dashboard</p>
               </a>
             </li>
 
@@ -110,37 +110,31 @@
 
             {% if user.account.role >= 10 and user.account.role < 40 %}
               <li class="nav-item">
+                <a href="/appointment/list/" class="nav-link">
+                  <p>Appointments</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
                 <a href="/appointment/create/" class="nav-link">
                   <p>Create Appointment</p>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a href="/appointment/list/" class="nav-link">
-                  <p>View Appointments</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
                 <a href="/medtest/list/" class="nav-link">
-                  <p>View Medical Tests</p>
+                  <p>Medical Tests</p>
                 </a>
               </li>
 
               <li class="nav-item">
                 <a href="/prescription/list/" class="nav-link">
-                  <p>View Prescriptions</p>
+                  <p>Prescriptions</p>
                 </a>
               </li>
             {% endif %}
 
             {% if user.account.role >= 20 and user.account.role < 40 %}
-              <li class="nav-item">
-                <a href="/medicalinfo/list/" class="nav-link">
-                  <p>Medical Info</p>
-                </a>
-              </li>
-
               <li class="nav-item">
                 <a href="/admission/admit/" class="nav-link">
                   <p>Admit Patient</p>
@@ -149,7 +143,13 @@
 
               <li class="nav-item">
                 <a href="/admission/list/" class="nav-link">
-                  <p>View Inpatients</p>
+                  <p>Inpatients</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="/medicalinfo/list/" class="nav-link">
+                  <p>Medical Info</p>
                 </a>
               </li>
             {% endif %}
@@ -171,19 +171,19 @@
             {% if user.account.role == 40 %}
               <li class="nav-item">
                 <a href="/admin/users/" class="nav-link">
-                  <p>View Users</p>
+                  <p>Users</p>
                 </a>
               </li>
 
               <li class="nav-item">
                 <a href="/admin/activity/" class="nav-link">
-                  <p>View Activity</p>
+                  <p>Activity</p>
                 </a>
               </li>
 
               <li class="nav-item">
                 <a href="/admin/stats/" class="nav-link">
-                  <p>View System Statistics</p>
+                  <p>System Statistics</p>
                 </a>
               </li>
 
