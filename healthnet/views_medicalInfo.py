@@ -79,4 +79,5 @@ def patient_view(request):
     form = MedicalInfoForm(request.POST)
     form.disable_field('patient')
     template_data['form'] = form
+    template_data['form_button'] = 'Update Medical Info'
     return render(request, 'healthnet/medicalinfo/patient.html',template_data)

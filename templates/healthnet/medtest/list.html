@@ -1,10 +1,7 @@
 {% extends "base.html" %}
 {% load app_filters %}
-{% block title %}View Medical Tests{% endblock %}
-{% block sidebar_medtest_list %}active{% endblock %}
-{% block body_header %}View Medical Tests{% endblock %}
+{% block content_title %}{% block title %}View All Medical Tests{% endblock %}{% endblock %}
 {% block body %}
-    <p class="lead">View All Uploaded Medical Tests.</p>
     <table class="table table-striped">
         <thead>
             <th><a href="./?sort=doctor">Doctor</a></th>
