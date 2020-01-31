@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 {% load app_filters %}
+{% load static %}
 <html>
 <head lang="en">
     <meta charset="UTF-8">
     <title>Healthnet {% block title %}{% endblock %}</title>
-    <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/flatly-bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/bootstrap-datetimepicker.min.css"/>
-    <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/dashboard.css"/>
-    <script src="{{STATIC_URL}}js/jquery.min.js"></script>
-    <script src="{{STATIC_URL}}js/moment.min.js"></script>
-    <script src="{{STATIC_URL}}js/bootstrap.min.js"></script>
-    <script src="{{STATIC_URL}}js/bootstrap-datetimepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/adminlte.min.css' %}"/>
+    <script src="{% static 'js/adminlte.min.js'' %}"></script>
 </head>
 <body>
     <nav class="navbar navbar-default navbar-static-top">
