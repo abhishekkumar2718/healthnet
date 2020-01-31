@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate
 
 from healthnet.forms import PasswordForm, ProfileForm
-from healthnet.models import Action
+from healthnet.models import Action, Account, Admission, Appointment, Prescription
 from healthnet import logger
 from healthnet import views
 
@@ -19,8 +19,16 @@ def profile_view(request):
     # Get the template data from the session
     template_data = views.parse_session(request)
     # Proceed with the rest of the view
-    return render(request, 'healthnet/profile.html', template_data)
+    if request.user.account.role == Account.ACCOUNT_PATIENT: 
+        template_data['appointments'] = Appointment.objects.filter(patient=request.user)
+        template_data['prescriptions'] = Prescription.objects.filter(patient=request.user)
+        template_path = 'healthnet/dashboard_patient.html'
+    else:
+        template_data['inpatients'] = Admission.objects.filter(hospital=request.user.account.profile.prefHospital)
+        template_data['appointments'] = Appointment.objects.filter(doctor=request.user)
+        template_path = 'healthnet/dashboard_employee.html'
 
+    return render(request, template_path, template_data)
 
 def password_view(request):
     # Authentication check.

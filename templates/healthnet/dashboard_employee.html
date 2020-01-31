@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>HealthNet | {% block title %}{% endblock %}</title>
+  <title>HealthNet | Dashboard</title>
 
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <!-- Theme style -->
@@ -33,7 +33,7 @@
       </li>
         {% if user|isAuthenticated %}
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="/profile/" class="nav-link">Dashboard</a>
+          <a href="/profile" class="nav-link">Home</a>
         </li>
 
         <li class="nav-item d-none d-sm-inline-block">
@@ -43,9 +43,8 @@
         <li class="nav-item d-none d-sm-inline-block">
           <a href="/profile/update/" class="nav-link">Update Profile</a>
         </li>
-
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="/logout/" class="nav-link">Log Out</a>
+          <a href="/logout" class="nav-link">Log Out</a>
         </li>
         {% else %}
           <li class="nav-item d-none d-sm-inline-block">
@@ -243,16 +242,60 @@
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
-        <div class="card card-outline card-primary">
-          <div class="card-header">
-            <h3 class="card-title">{% block content_title %}{% endblock %}</h3>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="card card-outline card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Upcoming Appointments</h3>
+              </div>
+
+              <div class="card-body">
+                <table class="table table-striped">
+                  <thead>
+                    <th>Name</th>
+                    <th>Date</th>
+                  </thead>
+
+                  <tbody>
+                    {% for appointment in appointments %}
+                      <tr>
+                        <td>{{ appointment.patient.account.profile }}</td>
+                        <td>{{ appointment.date }}</td>
+                      </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
 
-          <div class="card-body">
-            {% block body %}{% endblock %}
+          <div class="col-lg-6">
+            <div class="card card-outline card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Inpatients</h3>
+              </div>
+
+              <div class="card-body">
+                <table class="table table-striped">
+                  <thead>
+                    <th>Name</th>
+                    <th>Date</th>
+                  </thead>
+
+                  <tbody>
+                    {% for admission in inpatients %}
+                      <tr>
+                        <td>{{ admission.patient.account.profile }}</td>
+                        <td>{{ admission.date }} </td>
+                      </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
-      </div><!-- /.container-fluid -->
+      </div>
     </div>
     <!-- /.content -->
   </div>
