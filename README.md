@@ -1,16 +1,15 @@
-# Medfit
+# HealthNet
+
+HealthNet is a suite of services which aim to streamline, automate and increase efficiency of medical adminstrative work. In simpler words, we make healthcare related paperwork less painful for everyone involved.
+
+[Link to demonstration](http://abhishekkumar8222.pythonanywhere.com/)
 
 ## Tech Stack
 
 - Python 3.6.9
 - Django  3.0.2
-- Vagrant 2.2.6
-
-## Installation
-
-- Install vagrant following the instructions at [Installing Vagrant](https://www.vagrantup.com/docs/installation/).
-- Clone and change into repository.
-- Setup Vagrant box using `vagrant up`.
+- Speech Recognition 3.8.1
+- PythonAnywhere (for hosting the application)
 
 ## Resources
 
