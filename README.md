@@ -16,4 +16,5 @@
 
 We have used the following resources:
 - [HealthNet](https://github.com/harlanhaskins/HealthNet) - A five year old Django based application
-- [AdminLTE](https://adminlte.io/) - A open source bootstrap admin theme
+- [AdminLTE](https://adminlte.io/) - An open sourced bootstrap admin theme
+- [Django-Speech-to-text-Chat](https://github.com/ehtisham91/Django-Speech-to-text-Chat) - An open sourced repository for Speech to text conversion in Django
